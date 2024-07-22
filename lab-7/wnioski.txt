@@ -1,0 +1,167 @@
+
+Wnioski z Przeprowadzonego Laboratorium
+
+Po uruchomieniu kodu otrzejmujemy:
+
+
+// 2
+Encoded: 0110011
+Decoded: { correctedData: '1100110', originalData: '0110' }
+Encoded Data: 0110011
+Modulated Signal: [
+  0, 1, 1, 0,
+  0, 1, 1
+]
+alfa: 0.1
+Transmitted Signal: [
+  0, 0, 1, 0,
+  1, 0, 1
+]
+Demodulated Data: 0010101
+Input Data: 1011
+Output Data: 1101
+Ber: 50%
+
+Encoded: 0110011
+Decoded: { correctedData: '1100110', originalData: '0110' }
+Encoded Data: 0110011
+Modulated Signal: [
+  0, 1, 1, 0,
+  0, 1, 1
+]
+alfa: 0.3
+Transmitted Signal: [
+  0, 1, 0, 0,
+  1, 1, 1
+]
+Demodulated Data: 0100111
+Input Data: 1011
+Output Data: 0101
+Ber: 75%
+
+Encoded: 0110011
+Decoded: { correctedData: '1100110', originalData: '0110' }
+Encoded Data: 0110011
+Modulated Signal: [
+  0, 1, 1, 0,
+  0, 1, 1
+]
+alfa: 0.5
+Transmitted Signal: [
+  1, 0, 1, 0,
+  0, 0, 0
+]
+Demodulated Data: 1010000
+Input Data: 1011
+Output Data: 1000
+Ber: 50%
+
+
+// 3
+Encoded: 0110011
+Decoded: { correctedData: '1100110', originalData: '0110' }
+Encoded Data: 0110011
+Modulated Signal: [
+  0, 1, 1, 0,
+  0, 1, 1
+]
+beta: 0.2
+Transmitted Signal: [
+  1, 0, 1, 1,
+  0, 1, 1
+]
+Demodulated Data: 1011011
+Input Data: 1011
+Output Data: 1010
+Ber: 0.25%
+
+Encoded: 0110011
+Decoded: { correctedData: '1100110', originalData: '0110' }
+Encoded Data: 0110011
+Modulated Signal: [
+  0, 1, 1, 0,
+  0, 1, 1
+]
+beta: 0.01
+Transmitted Signal: [
+  0, 1, 1, 0,
+  0, 1, 1
+]
+Demodulated Data: 0110011
+Input Data: 1011
+Output Data: 1011
+Ber: 0%
+
+Encoded: 0110011
+Decoded: { correctedData: '1100110', originalData: '0110' }
+Encoded Data: 0110011
+Modulated Signal: [
+  0, 1, 1, 0,
+  0, 1, 1
+]
+beta: 0.3
+Transmitted Signal: [
+  1, 1, 0, 0,
+  0, 0, 1
+]
+Demodulated Data: 1100001
+Input Data: 1011
+Output Data: 0001
+Ber: 50%
+
+
+//4
+
+Encoded: 0110011
+Decoded: { correctedData: '1100110', originalData: '0110' }
+Encoded Data: 0110011
+Modulated Signal: [
+  0, 1, 1, 0,
+  0, 1, 1
+]
+alfa: 0.5
+beta: 0.3
+Transmitted Signal: [
+  1, 0, 0, 1,
+  1, 0, 0
+]
+Demodulated Data: 1001100
+Input Data: 1011
+Output Data: 0100
+Ber: 100%
+
+Encoded: 0110011
+Decoded: { correctedData: '1100110', originalData: '0110' }
+Encoded Data: 0110011
+Modulated Signal: [
+  0, 1, 1, 0,
+  0, 1, 1
+]
+alfa: 0.05
+beta: 0.1
+Transmitted Signal: [
+  0, 1, 1, 0,
+  0, 1, 1
+]
+Demodulated Data: 0110011
+Input Data: 1011
+Output Data: 1011
+Ber: 0%
+
+Encoded: 0110011
+Decoded: { correctedData: '1100110', originalData: '0110' }
+Encoded Data: 0110011
+Modulated Signal: [
+  0, 1, 1, 0,
+  0, 1, 1
+]
+alfa: 0.01
+beta: 0.45
+Transmitted Signal: [
+  0, 1, 1, 1,
+  0, 0, 1
+]
+Demodulated Data: 0111001
+Input Data: 1011
+Output Data: 1001
+Ber: 25%

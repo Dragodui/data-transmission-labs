@@ -17,17 +17,29 @@ const getTabForChosen = (chosenTable: number): number[] => {
   const f: number = 5;
   const Hs: number[] = [5, 20, 50];
 
-  const customFunctionForX = (t: number): number => Math.sin(2 * Math.PI * f * t * Math.cos(3 * Math.PI * t) + t * fi);
-  const customFunctionForY = (t: number): number => (customFunctionForX(t) * t) / 3 + Math.cos(20 * Math.PI * t);
-  const customFunctionForZ = (t: number): number => 1.92 * (Math.cos((3 * Math.PI * t) / 2) + Math.cos((customFunctionForY(t) * customFunctionForY(t)) / (8 * customFunctionForX(t) + 3)) * t);
-  const customFunctionForV = (t: number): number => ((customFunctionForY(t) * customFunctionForZ(t)) / (customFunctionForX(t) + 2)) * Math.cos(7.2 * Math.PI * t) + Math.sin(Math.PI * t * t);
+  const customFunctionForX = (t: number): number =>
+    Math.sin(2 * Math.PI * f * t * Math.cos(3 * Math.PI * t) + t * fi);
+  const customFunctionForY = (t: number): number =>
+    (customFunctionForX(t) * t) / 3 + Math.cos(20 * Math.PI * t);
+  const customFunctionForZ = (t: number): number =>
+    1.92 *
+    (Math.cos((3 * Math.PI * t) / 2) +
+      Math.cos(
+        (customFunctionForY(t) * customFunctionForY(t)) /
+          (8 * customFunctionForX(t) + 3),
+      ) *
+        t);
+  const customFunctionForV = (t: number): number =>
+    ((customFunctionForY(t) * customFunctionForZ(t)) /
+      (customFunctionForX(t) + 2)) *
+      Math.cos(7.2 * Math.PI * t) +
+    Math.sin(Math.PI * t * t);
   const customFunctionForU = (t: number): number => {
     if (t >= 0 && t < 0.1)
       return Math.sin(6 * Math.PI * t) * Math.cos(5 * Math.PI * t);
     else if (t >= 0.1 && t < 0.4)
       return -1.1 * t * Math.cos(41 * Math.PI * t * t);
-    else if (t >= 0.4 && t < 0.72)
-      return t * Math.sin(20 * t * t * t * t);
+    else if (t >= 0.4 && t < 0.72) return t * Math.sin(20 * t * t * t * t);
     else if (t >= 0.72 && t < 1)
       return 3.3 * (t - 0.72) * Math.cos(27 * t + 1.3);
     else return 0;
@@ -41,7 +53,10 @@ const getTabForChosen = (chosenTable: number): number[] => {
     return (result * 2) / Math.PI;
   };
 
-  const makeArrayFull = (array: number[], customFunc: (t: number) => number): void => {
+  const makeArrayFull = (
+    array: number[],
+    customFunc: (t: number) => number,
+  ): void => {
     for (let n = 0; n < N1; n++) {
       t = n / fs;
       const a: number = customFunc(t);
@@ -89,7 +104,14 @@ const customExp = (z: ComplexNumber): ComplexNumber => {
   return { real: real, imag: imag };
 };
 
-const customMultiplyComplexNumbers = (a: ComplexNumber, b: ComplexNumber): ComplexNumber => {
+const customMinus = (n1: ComplexNumber, n2: ComplexNumber): ComplexNumber => {
+  return { real: n1.real - n2.real, imag: n1.imag - n2.imag };
+};
+
+const customMultiplyComplexNumbers = (
+  a: ComplexNumber,
+  b: ComplexNumber,
+): ComplexNumber => {
   const realPart: number = a.real * b.real - a.imag * b.imag;
   const imaginaryPart: number = a.real * b.imag + a.imag * b.real;
   return { real: realPart, imag: imaginaryPart };
@@ -109,13 +131,54 @@ const customFunction = (): ComplexNumber => {
     let k: number = 0;
     if (n <= N / 2 - 1) k = n;
     else k = N / 2 - 1;
-    const exp: ComplexNumber = customExp({ real: 0, imag: (-2 * Math.PI * k * n) / N });
+    const exp: ComplexNumber = customExp({
+      real: 0,
+      imag: (-2 * Math.PI * k * n) / N,
+    });
     result = customPlus(result, exp);
     result = customMultiply(result, Xn[0]);
   }
   return result;
 };
+function fft(input: ComplexNumber[]): ComplexNumber[] {
+  const N = input.length;
 
+  if (N <= 1) {
+      return input;
+  }
+
+  // Divide the input into even and odd indices
+  const even: ComplexNumber[] = [];
+  const odd: ComplexNumber[] = [];
+  for (let i = 0; i < N; i++) {
+      if (i % 2 === 0) {
+          even.push(input[i]);
+      } else {
+          odd.push(input[i]);
+      }
+  }
+
+  // Recursively compute FFT for even and odd indices
+  const evenFFT = fft(even);
+  const oddFFT = fft(odd);
+
+  // Compute twiddle factors
+  const twiddleFactors: ComplexNumber[] = Array.from({ length: N }, (_, k) => {
+      const exponent = -2 * Math.PI * k / N;
+      return { real: Math.cos(exponent), imag: Math.sin(exponent) };
+  });
+
+  // Combine the results
+  const output: ComplexNumber[] = new Array(N);
+  for (let k = 0; k < N / 2; k++) {
+      const twiddle = twiddleFactors[k];
+      const oddPart = customMultiplyComplexNumbers(oddFFT[k], twiddle);
+      output[k] = customPlus(evenFFT[k], oddPart);
+      output[k + N / 2] = customMinus(evenFFT[k], oddPart);
+  }
+
+  return output;
+}
 const DFT = (x: number[]): number[] => {
   const N: number = x.length;
   const X: number[] = new Array(N).fill(0);
@@ -143,7 +206,9 @@ const calculateAmplitudeSpectrum = (signal: number[]): number[] => {
       imaginaryPart -= signal[n] * Math.sin(angle);
     }
 
-    spectrum[k] = Math.sqrt(realPart * realPart + imaginaryPart * imaginaryPart);
+    spectrum[k] = Math.sqrt(
+      realPart * realPart + imaginaryPart * imaginaryPart,
+    );
   }
 
   return spectrum;
@@ -165,7 +230,11 @@ const main = (): void => {
     tArray.push(i);
   }
   const t: number[] = tArray.map((i) => i / fs);
-  const x: number[] = t.map((tVal) => Math.sin(2 * Math.PI * 10 * tVal) + 0.5 * Math.sin(2 * Math.PI * 20 * tVal));
+  const x: number[] = t.map(
+    (tVal) =>
+      Math.sin(2 * Math.PI * 10 * tVal) +
+      0.5 * Math.sin(2 * Math.PI * 20 * tVal),
+  );
 
   const tab: number[] = getTabForChosen(0);
   const X: number[] = DFT(tab);

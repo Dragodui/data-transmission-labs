@@ -7,14 +7,14 @@ const customFunction = (x: number): number => {
 
 const drawAxis = () => {
   ctx.beginPath();
-  ctx.moveTo(0, canvas.height/2);
-  ctx.lineTo(canvas.width, canvas.height/2);
+  ctx.moveTo(0, canvas.height / 2);
+  ctx.lineTo(canvas.width, canvas.height / 2);
   ctx.strokeStyle = 'black';
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.moveTo(canvas.width/2, 0);
-  ctx.lineTo(canvas.width/2, canvas.height*2);
+  ctx.moveTo(canvas.width / 2, 0);
+  ctx.lineTo(canvas.width / 2, canvas.height * 2);
   ctx.strokeStyle = 'black';
   ctx.stroke();
 };
@@ -28,8 +28,8 @@ drawAxis();
 for (let x: number = minX; x <= maxX; x += step) {
   const y: number = customFunction(x);
 
-  const xCoord = canvas.width/2 + x*5;
-  const yCoord = canvas.height/2 - y;
+  const xCoord = canvas.width / 2 + x * 5;
+  const yCoord = canvas.height / 2 - y;
 
   ctx.beginPath();
   ctx.arc(xCoord, yCoord, 1, 0, 1 * Math.PI);

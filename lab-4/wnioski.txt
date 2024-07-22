@@ -1,0 +1,23 @@
+
+
+Wnioski
+
+1. Generowanie sygnałów ASK, PSK, FSK:
+   - Udało się wygenerować sygnały zmodulowane dla kluczowania amplitudy (ASK), fazy (PSK) oraz częstotliwości (FSK). 
+   - Dla kluczowania amplitudy (ASK) użyto amplitud (A1 = 1.0) i (A2 = 2.0). Sygnał ASK zmieniał amplitudę w zależności od wartości bitu.
+   - Dla kluczowania fazy (PSK) użyto faz (phi1 = 0) i (phi2 = pi). Sygnał PSK zmieniał fazę w zależności od wartości bitu.
+   - Dla kluczowania częstotliwości (FSK) użyto częstotliwości fn1 = (W+1)/Tb oraz fn2 = (W+5)/Tb. Sygnał FSK zmieniał częstotliwość w zależności od wartości bitu.
+
+2. Widma amplitudowe:
+   - Widma amplitudowe sygnałów zmodulowanych zostały wygenerowane za pomocą dyskretnej transformacji Fouriera (DFT).
+   - Skalę częstotliwościową dobrano tak, aby jak najwięcej prążków widma było widocznych na wykresie. Widma zostały przedstawione w skali decybelowej.
+
+3. Wnioski z analizy widm:
+   - Dla sygnału ASK, widmo amplitudowe pokazuje wyraźne prążki odpowiadające różnym amplitudom sygnału.
+   - W przypadku PSK, widmo amplitudowe zawiera prążki związane ze zmianami fazy sygnału.
+   - Widmo sygnału FSK wykazuje różne częstotliwości nośne w zależności od wartości bitu, co jest zgodne z teorią kluczowania FSK.
+
+4. Szerokość pasma:
+   - Szerokość pasma dla sygnałów zmodulowanych ASK, PSK oraz FSK została oszacowana na podstawie widm amplitudowych.
+   - Dla ASK i PSK, szerokość pasma jest stosunkowo wąska, podczas gdy dla FSK jest szersza z powodu wykorzystania dwóch różnych częstotliwości nośnych.
+

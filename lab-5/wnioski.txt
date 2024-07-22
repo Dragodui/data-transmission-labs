@@ -1,0 +1,20 @@
+
+
+Wnioski
+
+1. Implementacja demodulatorów:
+   - Zaimplementowano demodulatory koherentne dla sygnałów ASK, PSK oraz FSK zgodnie z rysunkami 1-3 z instrukcji.
+   - Demodulatory zostały przetestowane za pomocą sygnałów testowych wygenerowanych w poprzednich laboratoriach.
+
+2. Wykresy procesu demodulacji:
+   - Wykresy przedstawiające proces demodulacji dla sygnałów ASK, PSK oraz FSK zostały wygenerowane.
+   - W przypadku ASK i PSK, wykresy pokazują sygnały z(t), x(t), p(t) oraz e(t).
+   - Dla FSK, wykresy obejmują sygnały z(t), r1(t), r2(t), pi(t), po(t), p(t) oraz e(t).
+
+3. Konwersja sygnału na ciąg bitów:
+   - Napisano funkcję zamieniającą sygnał c(t) na ciąg bitów.
+   - Funkcja została przetestowana i poprawnie odtwarzała ciąg bitów z sygnału zmodulowanego.
+
+4. Porównanie wektora bitowego:
+   - Na wykresach porównano wektor bitowy uzyskany w procesie demodulacji z wektorem wprowadzonym na wejście modulatora.
+   - Wyniki demodulacji były zgodne z oryginalnym ciągiem bitów, co potwierdza poprawność implementacji demodulatorów.

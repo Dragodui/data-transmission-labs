@@ -1,0 +1,38 @@
+ Wnioski z przeprowadzonych eksperymentów
+
+ Modulacja Amplitudy (AM)
+
+1.  Niska głębokość modulacji ( k_a < 1 ):
+    -   Mniejsza podatność na zakłócenia.
+    -   Trudniejszy do odzyskania sygnał informacyjny.
+2.  Średnia głębokość modulacji ( 1 < k_a < 2 ):
+    -   Lepszy kompromis między jakością a odpornością na zakłócenia.
+3.  Wysoka głębokość modulacji ( k_a > 2 ):
+    -   Ryzyko zniekształceń, wymaga większej szerokości pasma.
+
+ Modulacja Fazy (PM)
+
+1.  Niska głębokość modulacji ( k_p < 1 ):
+    - Odporna na zakłócenia, mniej efektywna w przenoszeniu
+      informacji.
+2.  Średnia głębokość modulacji ( 0 < k_p < 2 ):
+    - Lepsze przenoszenie informacji, dobra odporność na zakłócenia.
+3.  Wysoka głębokość modulacji ( k_p > 2 ):
+    - Podatność na zakłócenia, większa szerokość pasma.
+
+ Modulacja Częstotliwości (FM)
+
+1.  Niska głębokość modulacji ( k_f < 1 ):
+    - Mniej efektywna, mniejsze wymagania szerokości pasma.
+2.  Średnia głębokość modulacji ( 0 < k_f < 2 ):
+    - Kompromis między jakością a odpornością na zakłócenia.
+3.  Wysoka głębokość modulacji ( k_f > 2 ):
+    - Ryzyko zniekształceń, efektywne przenoszenie sygnału informacyjnego.
+
+
+ Podsumowanie
+
+Eksperymenty wykazały wpływ głębokości modulacji na jakość sygnału i
+odporność na zakłócenia. Każdy rodzaj modulacji ma specyficzne
+właściwości i zastosowania, co wymaga odpowiedniego doboru parametrów w
+systemach komunikacyjnych.

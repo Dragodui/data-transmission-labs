@@ -1,0 +1,8 @@
+Wnioski
+
+Po uruchomieniu kodu otrzyjmujemy:
+
+Encoded (7,4): 0110011
+Decoded (7,4): { correctedData: '1100110', originalData: '0110' }
+Encoded (15,11): 101110111001101
+Decoded (15,11): { correctedData: '100111001011110', originalData: '10011100101' }
